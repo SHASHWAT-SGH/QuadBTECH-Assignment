@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
@@ -12,6 +12,8 @@ const TabNavigator = () => {
       initialRouteName="Home"
       screenOptions={({route}) => ({
         headerShown: false,
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
