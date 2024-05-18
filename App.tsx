@@ -27,6 +27,8 @@ import {
 
 import {NavigationContainer} from '@react-navigation/native';
 import TabNavigator from './routes/TabNavigator';
+import {colorScheme1} from './constants/colors';
+import DetailsScreen from './screens/DetailsScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,14 +78,15 @@ function App(): React.JSX.Element {
         ]}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
+          backgroundColor={colorScheme1.color1}
         />
         {/* <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
           
         </ScrollView> */}
-        <TabNavigator />
+        <DetailsScreen />
+        {/* <TabNavigator /> */}
       </SafeAreaView>
     </NavigationContainer>
   );
