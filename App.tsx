@@ -80,12 +80,6 @@ function App(): React.JSX.Element {
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={colorScheme1.color1}
         />
-        {/* <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          
-        </ScrollView> */}
-        {/* <DetailsScreen /> */}
         <TabNavigator />
       </SafeAreaView>
     </NavigationContainer>
