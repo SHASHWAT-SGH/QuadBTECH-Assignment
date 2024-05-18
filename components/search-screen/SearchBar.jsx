@@ -1,6 +1,5 @@
 import {StyleSheet, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SearchBar = ({setSearchText}) => {
   const [text, setText] = useState('');
@@ -13,7 +12,7 @@ const SearchBar = ({setSearchText}) => {
     <View style={[styles.container]}>
       <View style={[styles.wrapper]}>
         <View style={[styles.left]}>
-          <Icon name="search" size={38} color="#ffffff" />
+          {/* <Icon name="search" size={38} color="#ffffff" /> */}
         </View>
         <View style={[styles.middle]}>
           <TextInput

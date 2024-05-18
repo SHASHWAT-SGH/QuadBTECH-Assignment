@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import StackNavigatorHome from './StackNavigatorHome';
 import {colorScheme1} from '../constants/colors';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,8 +14,20 @@ const TabNavigator = () => {
     <Tab.Navigator
       initialRouteName="homeStack"
       screenOptions={({route}) => ({
+        // eslint-disable-next-line react/no-unstable-nested-components
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+
+          if (route.name === 'homeStack') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'search' : 'search-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
         headerShown: false,
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: colorScheme1.color2,

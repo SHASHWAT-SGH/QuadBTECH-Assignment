@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Card from '../components/home-screen/Card';
 import {colorScheme1} from '../constants/colors';
@@ -6,6 +6,7 @@ import SearchBar from '../components/home-screen/SearchBar';
 import axios from 'react-native-axios';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation, useRoute} from '@react-navigation/native';
+
 const HomeScreen = () => {
   const [data, setData] = useState([]);
   const navigation = useNavigation();

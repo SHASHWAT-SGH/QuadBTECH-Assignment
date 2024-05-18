@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 
 const SearchBar = () => {
@@ -14,7 +14,7 @@ const SearchBar = () => {
     <View style={[styles.container]}>
       <View style={[styles.wrapper]}>
         <View style={[styles.left]}>
-          <Icon name="search" size={38} color="#ffffff" />
+          {/* <Icon name="search" size={38} color="#ffffff" /> */}
         </View>
         <View style={[styles.middle]}>
           <TextInput
