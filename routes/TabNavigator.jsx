@@ -34,7 +34,11 @@ const TabNavigator = () => {
           borderBlockColor: colorScheme1.color3,
         },
       })}>
-      <Tab.Screen name="homeStack" component={StackNavigatorHome} />
+      <Tab.Screen
+        name="homeStack"
+        component={StackNavigatorHome}
+        options={{tabBarLabel: 'Home'}}
+      />
       <Tab.Screen name="Search" component={SearchScreen} />
     </Tab.Navigator>
   );

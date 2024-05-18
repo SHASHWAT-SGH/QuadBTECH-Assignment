@@ -7,7 +7,8 @@ const DetailsScreen = ({route}) => {
 
   const removeHtmlTags = str => {
     const regex = /<\/?[^>]+>/g;
-    return str.replace(regex, '');
+    str = str?.replace(regex, '');
+    return str;
   };
 
   return (
@@ -33,7 +34,9 @@ const DetailsScreen = ({route}) => {
             justifyContent: 'space-between',
           }}>
           <Text>Language: {data.show.language}</Text>
-          <Text>Rating: {data.show.rating ? data.show.rating.average : 0}</Text>
+          <Text>
+            Rating: {data.show.rating.average ? data.show.rating.average : 0}
+          </Text>
         </View>
         <View
           style={{
