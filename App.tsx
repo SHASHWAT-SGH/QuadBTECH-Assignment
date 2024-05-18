@@ -4,7 +4,7 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -85,8 +85,8 @@ function App(): React.JSX.Element {
           style={backgroundStyle}>
           
         </ScrollView> */}
-        <DetailsScreen />
-        {/* <TabNavigator /> */}
+        {/* <DetailsScreen /> */}
+        <TabNavigator />
       </SafeAreaView>
     </NavigationContainer>
   );

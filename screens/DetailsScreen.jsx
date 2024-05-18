@@ -1,12 +1,22 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {colorScheme1} from '../constants/colors';
 
-const DetailsScreen = () => {
+const DetailsScreen = ({route}) => {
+  const data = route.params;
+
+  const removeHtmlTags = str => {
+    const regex = /<\/?[^>]+>/g;
+    return str.replace(regex, '');
+  };
+
   return (
     <View style={[styles.container]}>
       <Image
         source={{
-          uri: 'https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg',
+          uri: data.show.image
+            ? data.show.image.original
+            : 'https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg',
         }}
         style={[styles.image]}
       />
@@ -22,8 +32,8 @@ const DetailsScreen = () => {
             marginTop: 8,
             justifyContent: 'space-between',
           }}>
-          <Text>Language: English</Text>
-          <Text>Rating: 6.4</Text>
+          <Text>Language: {data.show.language}</Text>
+          <Text>Rating: {data.show.rating ? data.show.rating.average : 0}</Text>
         </View>
         <View
           style={{
@@ -32,6 +42,9 @@ const DetailsScreen = () => {
             marginTop: 8,
             gap: 4,
           }}>
+          {data.show.genres.map((item, index) => {
+            return <Text key={index}>{item}</Text>;
+          })}
           <Text>Drama</Text>
           <Text>Sports</Text>
         </View>
@@ -42,7 +55,7 @@ const DetailsScreen = () => {
             color: 'white',
             marginTop: 4,
           }}>
-          All American
+          {data.show.name}
         </Text>
         <Text
           style={{
@@ -51,11 +64,7 @@ const DetailsScreen = () => {
             color: 'white',
             // marginTop: 4,
           }}>
-          When a rising high school football player from South Central L.A. is
-          recruited to play for Beverly Hills High, the wins, losses and
-          struggles of two families from vastly different worlds — Compton and
-          Beverly Hills — begin to collide. Inspired by the life of pro football
-          player Spencer Paysinger.
+          {removeHtmlTags(data.show.summary)}
         </Text>
       </View>
     </View>
@@ -66,10 +75,8 @@ export default DetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    // paddingHorizontal: 12,
-    // paddingTop: 3,
-    // flex: 1,
-    // backgroundColor: 'red',
+    flex: 1,
+    backgroundColor: colorScheme1.color1,
   },
   image: {
     objectFit: 'cover',

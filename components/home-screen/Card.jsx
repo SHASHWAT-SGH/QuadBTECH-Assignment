@@ -1,24 +1,22 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-const Card = () => {
+const Card = ({name, description, image, data}) => {
+  const navigation = useNavigation();
   return (
     <View style={[styles.container]}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('details', data)}>
         <Image
           style={[styles.image]}
           source={{
-            uri: 'https://static.tvmaze.com/uploads/images/medium_portrait/425/1064746.jpg',
+            uri: image,
           }}
         />
-        <Text style={[styles.heading]}>Passin' Me By</Text>
+        <Text style={[styles.heading]}>{name}</Text>
         <View>
-          <Text style={[styles.description]}>
-            When a rising high school football player from South Central L.A. is
-            recruited to play for Beverly Hills High, the wins, losses and
-            struggles of two families from vastly different worlds — Compton and
-            Beverly Hills — begin to collide. Inspired by the life of pro
-            football player Spencer Paysinger.
+          <Text style={[styles.description]} numberOfLines={5}>
+            {description}
           </Text>
         </View>
       </TouchableOpacity>

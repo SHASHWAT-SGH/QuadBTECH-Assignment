@@ -1,15 +1,14 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {StyleSheet, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useNavigation} from '@react-navigation/native';
 
-const SearchBar = () => {
+const SearchBar = ({setSearchText}) => {
+  const [text, setText] = useState('');
+  const handleTextChange = newText => {
+    setText(newText);
+    setSearchText(newText);
+  };
+
   return (
     <View style={[styles.container]}>
       <View style={[styles.wrapper]}>
@@ -18,9 +17,11 @@ const SearchBar = () => {
         </View>
         <View style={[styles.middle]}>
           <TextInput
-            editable={false}
+            value={text}
+            onChangeText={handleTextChange}
             style={[styles.searchInput]}
             placeholder="Search..."
+            autoFocus={true}
           />
         </View>
         <View style={[styles.right]}></View>
